@@ -16,8 +16,8 @@ const Register = () => {
       lastname: "fortunato",
       email: "guido@test.com",
       confirmEmail: "guido@test.com",
-      pass: 123456,
-      repass: 123456
+      pass: '123456',
+      repass: '123456'
     },
   });
 
