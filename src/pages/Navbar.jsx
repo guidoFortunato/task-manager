@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 
 const Navbar = () => {
+  const { user, setUser, signOutUser } = useContext(UserContext);
 
-  const {user, setUser} = useContext(UserContext)
-
+  const handleLogout = () => {
+    console.log("click logout");
+    setUser(false)
+    signOutUser();
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand" to='/'>
+        <Link className="navbar-brand" to="/">
           Navbar
         </Link>
         <button
@@ -27,31 +31,54 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item me-3">
-              <NavLink className="nav-link" activeclassname="active" aria-current="page" to='/'>
+              <NavLink
+                className="nav-link"
+                activeclassname="active"
+                aria-current="page"
+                to="/"
+              >
                 Home
               </NavLink>
             </li>
-            <li className="nav-item me-3">
-              <NavLink className="nav-link" activeclassname="active" to='/dashboard'>
-                Dashboard
-              </NavLink>
-            </li>
-            <li className="nav-item me-3">
-              <NavLink className="nav-link" activeclassname="active" to='/login'>
-                Login
-              </NavLink>
-            </li>
-            <li className="nav-item me-3">
-              <NavLink className="nav-link" activeclassname="active" to='/register'>
-                Register
-              </NavLink>
-            </li>
-            <li className="nav-item me-3">
-              <span className="nav-link logout">
-                Logout
-              </span>
-            </li>
-            
+            {user ? (
+              <>
+                <li className="nav-item me-3">
+                  <NavLink
+                    className="nav-link"
+                    activeclassname="active"
+                    to="/dashboard"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li className="nav-item me-3">
+                  <span className="nav-link logout" onClick={handleLogout}>
+                    Logout
+                  </span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item me-3">
+                  <NavLink
+                    className="nav-link"
+                    activeclassname="active"
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item me-3">
+                  <NavLink
+                    className="nav-link"
+                    activeclassname="active"
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

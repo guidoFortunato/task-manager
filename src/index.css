@@ -24,9 +24,9 @@ body {
   color: #0db8de;
 }
 form{
-  padding-top: 10px;
+  /* padding-top: 10px; */
   font-size: 14px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .login-form{
@@ -54,7 +54,7 @@ input[type='number']{
   background: #1a2226;
   border: 2px solid #0db8de;
   border-radius: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   color: #0db8de;
 }
 
@@ -69,7 +69,7 @@ input[type='number']:focus{
 
 .card-title{
   font-weight: 700;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .btn{
@@ -107,4 +107,13 @@ input[type='number']:focus{
 
 nav{
   user-select: none; /*el texto no se puede seleccionar*/
+}
+
+/* .error-input {
+  background-color: rgb(218, 45, 45) !important;
+  border: 2px solid #000 !important;
+} */
+
+.color-errors{
+  color: rgb(218, 45, 45);
 }
