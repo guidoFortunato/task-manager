@@ -78,7 +78,7 @@ const Register = () => {
     <div className="global-container">
       <div className="card login-form">
         <div className="card-body">
-          <h2 className="card-title text-center">Register</h2>
+          <h2 className="card-title text-center mb-4">Register</h2>
           <div className="card-text">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group mb-4">

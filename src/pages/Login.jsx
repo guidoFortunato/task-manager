@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import FormError from "../components/FormError";
@@ -25,55 +25,41 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      await loginUser(data.email, data.pass)
-      navigate('/dashboard')
+      await loginUser(data.email, data.pass);
+      navigate("/dashboard");
     } catch (error) {
-      console.log(error.code);
       if (error.code === "auth/invalid-email") {
-
         setError("email", {
-          message: "invalid email"
-        }
-
-      )};
+          message: "invalid email",
+        });
+      }
       if (error.code === "auth/missing-email") {
-
         setError("email", {
-          message: "enter email"
-        }
-
-      )};
+          message: "enter email",
+        });
+      }
       if (error.code === "auth/internal-error") {
-
         setError("email", {
-          message: "something unexpected has occurred, please try again later."
-        }
-
-      )};
+          message: "something unexpected has occurred, please try again later.",
+        });
+      }
       if (error.code === "auth/user-not-found") {
-
         setError("email", {
-          message: "user does not exist"
-        }
-
-      )};
+          message: "user does not exist",
+        });
+      }
       if (error.code === "auth/wrong-password") {
-
         setError("pass", {
-          message: "wrong password"
-        }
-
-      )};
-
-
-
+          message: "wrong password",
+        });
+      }
     }
   };
   return (
     <div className="global-container">
       <div className="card login-form">
         <div className="card-body">
-          <h2 className="card-title text-center">Login</h2>
+          <h2 className="card-title text-center mb-4">Login</h2>
           <div className="card-text">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group mb-4">
@@ -110,18 +96,16 @@ const Login = () => {
               </div>
 
               <div className="form-group">
-                  <button type="submit" className="btn btn-primary w-100">
-                    Sign in
-                  </button>
-                  <div className="signup">
-                    Dont have an account?{" "}
-                    <Link to="/register" className="btn-click-here">
-                      Click here
-                    </Link>
-                  </div>
+                <button type="submit" className="btn btn-primary w-100">
+                  Sign in
+                </button>
+                <div className="signup">
+                  Dont have an account?{" "}
+                  <Link to="/register" className="btn-click-here">
+                    Click here
+                  </Link>
                 </div>
-
-
+              </div>
             </form>
           </div>
         </div>

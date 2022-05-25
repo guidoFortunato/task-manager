@@ -12,10 +12,10 @@ const UserProvider = (props) => {
   const signOutUser = () => signOut(auth)
 
   useEffect(() => {
-    const unsuscribe = onAuthStateChanged(auth, user =>{
-      console.log(user)
-      if (user){
-        const { email, photoURL, displayName, uid } = user
+    const unsuscribe = onAuthStateChanged(auth, userFromFirebase =>{
+      console.log(userFromFirebase)
+      if (userFromFirebase){
+        const { email, photoURL, displayName, uid } = userFromFirebase
         setUser({email, photoURL, displayName, uid})
       }else{
         setUser(null)
