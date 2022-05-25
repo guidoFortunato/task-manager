@@ -10,7 +10,6 @@ const UserProvider = (props) => {
   const registerUser = (email, pass)=> createUserWithEmailAndPassword(auth, email, pass)
   const loginUser = (email, pass) => signInWithEmailAndPassword(auth, email, pass)
   const signOutUser = () => signOut(auth)
-  // onAuthStateChanged
 
   useEffect(() => {
     const unsuscribe = onAuthStateChanged(auth, user =>{

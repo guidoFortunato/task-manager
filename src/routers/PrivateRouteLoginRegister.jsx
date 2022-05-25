@@ -1,17 +1,12 @@
 import React, { useContext } from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
 import { UserContext } from '../context/UserProvider';
 
 
-const PrivateRouteLoginRegister = (props) => { //{element: Element, ...rest}
-
+const PrivateRouteLoginRegister = (props)=>{
   const { user } = useContext(UserContext);
-
-  if (!user) return <Navigate to='/login'/>
-  return props.children
-
-  // return <Route {...rest}>{user ? <Element /> : <Navigate to='/login'/>}</Route>
-
+  if(!user) return props.children
+  return <Navigate to='/dashboard' />
 }
 
 export default PrivateRouteLoginRegister;

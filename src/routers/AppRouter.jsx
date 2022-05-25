@@ -4,10 +4,10 @@ import Dashboard from "../pages/Dashboard";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Navbar from "../pages/Navbar";
+import Navbar from '../components/Navbar'
 import Register from "../pages/Register";
-import PrivateRouteLoginRegister from "./PrivateRouteDashboard";
-import PrivateRouteLogin from "./PrivateRouteLoginRegister";
+import PrivateRouteDashboard from "./PrivateRouteDashboard";
+import PrivateRouteLoginRegister from "./PrivateRouteLoginRegister";
 import { UserContext } from '../context/UserProvider';
 
 const AppRouter = () => {
@@ -22,13 +22,12 @@ const AppRouter = () => {
     <>
       <Navbar />
       <Routes>
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route
           path="/dashboard"
           element={
-            <PrivateRouteLogin>
+            <PrivateRouteDashboard>
               <Dashboard />
-            </PrivateRouteLogin>
+            </PrivateRouteDashboard>
           }
         />
 

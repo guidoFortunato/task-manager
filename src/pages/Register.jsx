@@ -1,7 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { useForm } from "react-hook-form";
+// import { erroresFirebase } from "../firebase/erroresFirebase";
+import FormError from "../components/FormError";
 
 const Register = () => {
   const {
@@ -16,23 +18,24 @@ const Register = () => {
       lastname: "fortunato",
       email: "guido@test.com",
       confirmEmail: "guido@test.com",
-      pass: '123456',
-      repass: '123456'
+      pass: "123456",
+      repass: "123456",
     },
   });
 
   const { registerUser } = useContext(UserContext);
   const navigate = useNavigate();
   const onSubmit = async (data) => {
+    // console.log(data);
     try {
       await registerUser(data.email, data.pass);
-      console.log("usuario creado");
       navigate("/dashboard");
     } catch (error) {
-      console.log(error.code);
+      // setError("firebase", {
+      //   message: erroresFirebase(error.code),
+      // });
       switch (error.code) {
         case "auth/weak-password":
-          
           setError("pass", {
             message: `The password ${data.password} is very weak`,
           });
@@ -40,7 +43,6 @@ const Register = () => {
           break;
 
         case "auth/missing-email":
-       
           setError("pass", {
             message: `Enter email address`,
           });
@@ -48,69 +50,30 @@ const Register = () => {
           break;
 
         case "auth/email-already-in-use":
-         
           setError("email", {
             message: `The mail: ${data.email} has already been registered.`,
           });
           break;
         case "auth/internal-error":
-          
           setError("email", {
             message: `Something unexpected has occurred, please try again later.`,
           });
           break;
 
         case "auth/invalid-email":
-
           setError("email", {
             message: `The mail: ${data.email} is invalid`,
           });
           break;
 
         default:
-          console.log("An error occurred in the server");
+          setError("email", {
+            message: "An error occurred in the server",
+          });
       }
-      // if (error.code === 'auth/email-already-in-use') console.log('email ya está en uso')
-      // if (error.code === 'auth/invalid-email') console.log('email inválido')
-      // if (error.code === 'auth/missing-email') console.log('ingrese email')
-      // if (error.code === 'auth/internal-error') console.log('ha ocurrido algo inesperado, por favor intente nuevamente mas tarde')
-      // if (error.code === 'auth/weak-password') console.log('la contraseña debe contener al menos 6 caracteres')
     }
   };
 
-  // const [styleRequired, setStyleRequired] = useState(false);
-
-  // const [name, setName] = useState('Guido');
-  // const [lastname, setLastname] = useState('Fortunato');
-  // const [email, setEmail] = useState('guido@test.com');
-  // const [confirmEmail, setConfirmEmail] = useState('guido@test.com');
-  // const [pass, setPass] = useState('riquelme');
-  // const [confirmPass, setConfirmPass] = useState('riquelme');
-
-  // const handleSubmit = async (e)=>{
-  //   e.preventDefault()
-
-  //   try {
-  //     await registerUser(email,pass)
-  //     console.log('usuario creado')
-  //     navigate('/dashboard')
-  //   } catch (error) {
-  //     console.log(error.code)
-  //     if (error.code === 'auth/email-already-in-use') console.log('email ya está en uso')
-  //     if (error.code === 'auth/invalid-email') console.log('email inválido')
-  //     if (error.code === 'auth/missing-email') console.log('ingrese email')
-  //     if (error.code === 'auth/internal-error') console.log('ha ocurrido algo inesperado, por favor intente nuevamente mas tarde')
-  //     if (error.code === 'auth/weak-password') console.log('la contraseña debe contener al menos 6 caracteres')
-
-  //   }
-  //   setName('')
-  //   setLastname('')
-  //   setDni()
-  //   setEmail('')
-  //   setConfirmEmail('')
-  //   setPass('')
-  //   setConfirmPass('')
-  // }
   return (
     <div className="global-container">
       <div className="card login-form">
@@ -125,15 +88,25 @@ const Register = () => {
                   className="form-control form-control-sm"
                   id="inputName"
                   {...register("name", {
+                    setValueAs: (v) => v.trim(),
                     required: {
                       value: true,
                       message: "required field",
                     },
+                    validate: {
+                      trim: (v) => {
+                        if (!v.trim()) {
+                          return "Please write something";
+                        }
+                        return true;
+                      },
+                    },
                   })}
                 />
-                {errors.name && (
+                {/* {errors.name && (
                   <span className="color-errors">{errors.name.message}</span>
-                )}
+                )} */}
+                <FormError error={errors.name} />
               </div>
               <div className="form-group mb-4">
                 <label htmlFor="inputLastname">Lastname</label>
@@ -142,22 +115,29 @@ const Register = () => {
                   className="form-control form-control-sm"
                   id="inputLastname"
                   {...register("lastname", {
+                    setValueAs: (v) => v.trim(),
                     required: {
                       value: true,
                       message: "required field",
                     },
+                    validate: {
+                      trim: (v) => {
+                        if (!v.trim()) {
+                          return "Please write something";
+                        }
+                        return true;
+                      },
+                    },
                   })}
                 />
-                {errors.lastname && (
+                {/* {errors.lastname && (
                   <span className="color-errors">
                     {errors.lastname.message}
                   </span>
-                  // <div className="alert alert-danger" role="alert">
-                  //   {errors.lastname.message}
-                  // </div>
-                  
-                )}
+                )} */}
+                <FormError error={errors.lastname} />
               </div>
+
               <div className="form-group mb-4">
                 <label htmlFor="inputEmailRegister">Email Address</label>
                 <input
@@ -177,9 +157,13 @@ const Register = () => {
                     },
                   })}
                 />
-                {errors.email && (
-                  <span className="color-errors">{errors.email.message}</span>
-                )}
+                {/* {errors.firebase && (
+                  <span className="color-errors">
+                    {errors.firebase.message}
+                  </span>
+                )} */}
+                <FormError error={errors.firebase} />
+                <FormError error={errors.email} />
               </div>
               <div className="form-group mb-4">
                 <label htmlFor="confirmInputEmailRegister">
@@ -201,11 +185,12 @@ const Register = () => {
                     },
                   })}
                 />
-                {errors.confirmEmail && (
+                {/* {errors.confirmEmail && (
                   <span className="color-errors">
                     {errors.confirmEmail.message}
                   </span>
-                )}
+                )} */}
+                <FormError error={errors.confirmEmail} />
               </div>
               <div className="form-group mb-4">
                 <label htmlFor="inputPasswordRegister">Password</label>
@@ -215,6 +200,7 @@ const Register = () => {
                   id="inputPasswordRegister"
                   autoComplete="new-password"
                   {...register("pass", {
+                    setValueAs: (v) => v.trim(),
                     required: {
                       value: true,
                       message: "required field",
@@ -236,9 +222,10 @@ const Register = () => {
                     },
                   })}
                 />
-                {errors.pass && (
+                {/* {errors.pass && (
                   <span className="color-errors">{errors.pass.message}</span>
-                )}
+                )} */}
+                <FormError error={errors.pass} />
               </div>
               <div className="form-group mb-3">
                 <label htmlFor="inputConfirmPasswordRegister">
@@ -251,6 +238,7 @@ const Register = () => {
                   id="inputConfirmPasswordRegister"
                   autoComplete="new-password"
                   {...register("repass", {
+                    setValueAs: (v) => v.trim(),
                     required: {
                       value: true,
                       message: "required field",
@@ -258,13 +246,13 @@ const Register = () => {
                     validate: {
                       equals: (value) =>
                         value === getValues("pass") || "Passwords do not match",
-                      // message: 'Passwords do not match'
                     },
                   })}
                 />
-                {errors.repass && (
+                {/* {errors.repass && (
                   <span className="color-errors">{errors.repass.message}</span>
-                )}
+                )} */}
+                <FormError error={errors.repass} />
               </div>
               {/* {errors.repass && setStyleRequired(true) } */}
 

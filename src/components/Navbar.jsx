@@ -3,11 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 
 const Navbar = () => {
-  const { user, setUser, signOutUser } = useContext(UserContext);
+  const { user, signOutUser } = useContext(UserContext);
 
   const handleLogout = () => {
-    console.log("click logout");
-    setUser(false)
     signOutUser();
   };
 
