@@ -4,10 +4,7 @@ body {
   background-color: #222d32 !important;
   height: 100%;
   color: #0db8de;
-}
-
-.active {
-  color: #0db8de !important;
+  font-weight: 700;
 }
 
 .link-form {
@@ -95,13 +92,14 @@ input[type='number']:focus{
 
 .btn-click-here{
   text-decoration: none;
-  color: #6242f5;
+  color: #fa4fab;
+  transition: all 400ms;
 }
 .btn-click-here:hover{
-  color: #5e4fa1;
+  color: #ca5e98;
 }
 
-.logout{
+.pointer{
   cursor: pointer;
 }
 
@@ -116,4 +114,35 @@ nav{
 
 .color-errors{
   color: rgb(218, 45, 45);
+}
+
+.btn-register-login{
+  background: transparent !important;
+  padding: 6px 20px;
+  border: 2px solid #0db8de;
+  border-radius: 5px !important;
+  color: #fff !important;
+  transition: all 500ms;
+}
+.btn-register-login:hover{
+  background: #0db8de !important;
+  color: #fa4fab;
+}
+
+.img-icono{
+  width: 60px;
+}
+
+.borde{
+  border: 2px solid #212529;
+}
+
+.active{
+  border: 2px dotted #fa4fab !important; /*#00C185*/
+  color: #fa4fab !important;
+}
+
+.hover:hover{
+  color: #fa4fab !important;
+  transition: all 400ms;
 }

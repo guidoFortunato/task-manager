@@ -37,7 +37,7 @@ const Register = () => {
       switch (error.code) {
         case "auth/weak-password":
           setError("pass", {
-            message: `The password ${data.password} is very weak`,
+            message: `The password '${data.password}' is very weak`,
           });
 
           break;
@@ -51,7 +51,7 @@ const Register = () => {
 
         case "auth/email-already-in-use":
           setError("email", {
-            message: `The mail: ${data.email} has already been registered.`,
+            message: `'${data.email}' has already been registered.`,
           });
           break;
         case "auth/internal-error":
@@ -62,7 +62,7 @@ const Register = () => {
 
         case "auth/invalid-email":
           setError("email", {
-            message: `The mail: ${data.email} is invalid`,
+            message: `'${data.email}' is invalid`,
           });
           break;
 
