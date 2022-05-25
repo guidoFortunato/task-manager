@@ -138,7 +138,6 @@ nav{
 }
 
 .active{
-  border: 2px dotted #fa4fab !important; /*#00C185*/
   color: #fa4fab !important;
 }
 

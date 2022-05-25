@@ -64,7 +64,9 @@ const Login = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group mb-4">
                 <label htmlFor="inputEmailLogin">Email Address</label>
+                
                 <input
+                
                   type="email"
                   className="form-control form-control-sm"
                   id="inputEmailLogin"
