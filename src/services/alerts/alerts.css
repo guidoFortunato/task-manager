@@ -1,0 +1,6 @@
+.swal2-styled{
+  background-color: #7dca50 !important;
+}
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 0 0 0 !important;
+}

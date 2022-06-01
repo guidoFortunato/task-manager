@@ -31,9 +31,6 @@ const Register = () => {
       await registerUser(data.email, data.pass);
       navigate("/dashboard");
     } catch (error) {
-      // setError("firebase", {
-      //   message: erroresFirebase(error.code),
-      // });
       switch (error.code) {
         case "auth/weak-password":
           setError("pass", {
@@ -51,7 +48,7 @@ const Register = () => {
 
         case "auth/email-already-in-use":
           setError("email", {
-            message: `'${data.email}' has already been registered.`,
+            message: `${data.email} has already been registered.`,
           });
           break;
         case "auth/internal-error":
@@ -62,7 +59,7 @@ const Register = () => {
 
         case "auth/invalid-email":
           setError("email", {
-            message: `'${data.email}' is invalid`,
+            message: `${data.email} is invalid`,
           });
           break;
 
@@ -130,11 +127,7 @@ const Register = () => {
                     },
                   })}
                 />
-                {/* {errors.lastname && (
-                  <span className="color-errors">
-                    {errors.lastname.message}
-                  </span>
-                )} */}
+                
                 <FormError error={errors.lastname} />
               </div>
 

@@ -1,13 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import FormError from "../components/FormError";
 import { UserContext } from "../context/UserProvider";
+import { FaUserAlt } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
+import { alertSuccess } from "../services/alerts/Alerts";
+
+import '../css/login.css'
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
+  const [showPass, setShowPass] = useState(false);
+  const [inputType, setInputType] = useState(false);
   // const [email, setEmail] = useState("guido@test.com");
   // const [pass, setPass] = useState("riquelme");
+
+  const togglePass = () => {
+    setShowPass(!showPass);
+    setInputType(!inputType);
+  };
 
   const navigate = useNavigate();
 
@@ -26,6 +40,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       await loginUser(data.email, data.pass);
+      alertSuccess();
       navigate("/dashboard");
     } catch (error) {
       if (error.code === "auth/invalid-email") {
@@ -55,6 +70,7 @@ const Login = () => {
       }
     }
   };
+
   return (
     <div className="global-container">
       <div className="card login-form">
@@ -62,13 +78,12 @@ const Login = () => {
           <h2 className="card-title text-center mb-4">Login</h2>
           <div className="card-text">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-group mb-4">
+              <div className="form-group mb-4 group-input">
                 <label htmlFor="inputEmailLogin">Email Address</label>
-                
+
                 <input
-                
                   type="email"
-                  className="form-control form-control-sm"
+                  className="form-control form-control-sm input-login"
                   id="inputEmailLogin"
                   autoComplete="username"
                   {...register("email", {
@@ -78,13 +93,15 @@ const Login = () => {
                     },
                   })}
                 />
+
+                <FaUserAlt className="user-icon" />
                 <FormError error={errors.email} />
               </div>
-              <div className="form-group mb-5">
+              <div className="form-group mb-5 group-input">
                 <label htmlFor="inputPasswordLogin">Password</label>
                 <input
-                  type="text"
-                  className="form-control form-control-sm"
+                  type={inputType ? "text" : "password"}
+                  className="form-control form-control-sm input-login"
                   id="inputPasswordLogin"
                   autoComplete="current-password"
                   {...register("pass", {
@@ -94,6 +111,17 @@ const Login = () => {
                     },
                   })}
                 />
+                <RiLockPasswordFill className="user-icon" />
+
+                {showPass ? (
+                  <AiFillEyeInvisible
+                    className="pass-icon-hide"
+                    onClick={togglePass}
+                  />
+                ) : (
+                  <AiFillEye className="pass-icon-hide" onClick={togglePass} />
+                )}
+
                 <FormError error={errors.pass} />
               </div>
 

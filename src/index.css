@@ -55,6 +55,10 @@ input[type='number']{
   color: #0db8de;
 }
 
+.input-login{
+  padding: 0 27px;
+}
+
 input[type='email']:focus,
 input[type='password']:focus,
 input[type='text']:focus,
@@ -116,18 +120,37 @@ nav{
   color: rgb(218, 45, 45);
 }
 
+.nav-icon{
+  display: none;
+}
+
 .btn-register-login{
-  background: transparent !important;
-  padding: 6px 20px;
-  border: 2px solid #0db8de;
-  border-radius: 5px !important;
-  color: #fff !important;
-  transition: all 500ms;
+  border: 2px solid #212529;
 }
-.btn-register-login:hover{
-  background: #0db8de !important;
-  color: #fa4fab;
+
+
+
+
+@media screen and (min-width: 992px){
+  .btn-register-login{
+    background: transparent !important;
+    padding: 6px 20px;
+    border: 2px solid #0db8de;
+    border-radius: 5px !important;
+    color: #fff !important;
+    transition: all 500ms;
+    /* width: 25%; */
+  }
+  .btn-register-login:hover{
+    background: #0db8de !important;
+    color: #fa4fab;
+  } 
+  .nav-icon{
+    display: inline;
+  }
 }
+
+
 
 .img-icono{
   width: 60px;
@@ -145,3 +168,12 @@ nav{
   color: #fa4fab !important;
   transition: all 400ms;
 }
+
+/*iconos login*/
+
+
+
+
+
+
+/******************/
