@@ -9,12 +9,13 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { alertSuccess } from "../services/alerts/Alerts";
 
-import '../css/login.css'
+import "../css/login.css";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
   const [showPass, setShowPass] = useState(false);
   const [inputType, setInputType] = useState(false);
+  const [loading, setLoading] = useState(false);
   // const [email, setEmail] = useState("guido@test.com");
   // const [pass, setPass] = useState("riquelme");
 
@@ -39,6 +40,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true)
       await loginUser(data.email, data.pass);
       alertSuccess();
       navigate("/dashboard");
@@ -80,23 +82,25 @@ const Login = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group mb-4 group-input">
                 <label htmlFor="inputEmailLogin">Email Address</label>
-
-                <input
-                  type="email"
-                  className="form-control form-control-sm input-login"
-                  id="inputEmailLogin"
-                  autoComplete="username"
-                  {...register("email", {
-                    required: {
-                      value: true,
-                      message: "required field",
-                    },
-                  })}
-                />
+                <div className="container-input">
+                  <input
+                    type="email"
+                    className="form-control form-control-sm input-login"
+                    id="inputEmailLogin"
+                    autoComplete="username"
+                    {...register("email", {
+                      required: {
+                        value: true,
+                        message: "required field",
+                      },
+                    })}
+                  />
+                </div>
 
                 <FaUserAlt className="user-icon" />
                 <FormError error={errors.email} />
               </div>
+
               <div className="form-group mb-5 group-input">
                 <label htmlFor="inputPasswordLogin">Password</label>
                 <input
@@ -126,8 +130,8 @@ const Login = () => {
               </div>
 
               <div className="form-group">
-                <button type="submit" className="btn btn-primary w-100">
-                  Sign in
+                <button type="submit" className={loading ? "btn btn-primary w-100 loading" : "btn btn-primary w-100"}>
+                  {loading ? 'Loading...' : 'Log in'}
                 </button>
                 <div className="signup">
                   Dont have an account?{" "}

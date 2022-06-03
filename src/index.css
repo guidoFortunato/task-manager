@@ -171,8 +171,25 @@ nav{
 
 /*iconos login*/
 
+.group-input{
+  position: relative;
+}
 
+.user-icon{
+  position: absolute;
+  top: 39px;
+  left: 8px;
+}
+.pass-icon-hide{
+  position: absolute;
+  top: 39px;
+  left: 320px;
+  cursor: pointer;
+}
 
+.loading{
+  background-color: #238297 !important;
+}
 
 
 
