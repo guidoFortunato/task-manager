@@ -1,28 +1,29 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import FormError from "../components/FormError";
 import { UserContext } from "../context/UserProvider";
-// import { FaUserAlt } from "react-icons/fa";
-// import { RiLockPasswordFill } from "react-icons/ri";
-// import { AiFillEyeInvisible } from "react-icons/ai";
-// import { AiFillEye } from "react-icons/ai";
+import { FaUserAlt } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
 import { alertLoginSuccess } from "../services/alerts/Alerts";
+
+import FormError from "../components/FormError";
 
 import "../css/login.css";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
-  // const [showPass, setShowPass] = useState(false);
-  // const [inputType, setInputType] = useState(false);
+  const [showPass, setShowPass] = useState(false);
+  const [inputType, setInputType] = useState(false);
   const [loading, setLoading] = useState(false);
   // const [email, setEmail] = useState("guido@test.com");
   // const [pass, setPass] = useState("riquelme");
 
-  // const togglePass = () => {
-  //   setShowPass(!showPass);
-  //   setInputType(!inputType);
-  // };
+  const togglePass = () => {
+    setShowPass(!showPass);
+    setInputType(!inputType);
+  };
 
   const navigate = useNavigate();
 
@@ -98,15 +99,15 @@ const Login = () => {
                   />
                 </div>
 
-                {/* <FaUserAlt className="user-icon" /> */}
+                <FaUserAlt className="user-icon" />
                 <FormError error={errors.email} />
               </div>
 
               <div className="form-group mb-5 group-input">
                 <label htmlFor="inputPasswordLogin">Password</label>
                 <input
-                  // type={inputType ? "text" : "password"}
-                  type='text'
+                  type={inputType ? "text" : "password"}
+                  // type='text'
                   className="form-control form-control-sm input-login"
                   id="inputPasswordLogin"
                   autoComplete="current-password"
@@ -117,16 +118,16 @@ const Login = () => {
                     },
                   })}
                 />
-                {/* <RiLockPasswordFill className="user-icon" /> */}
+                <RiLockPasswordFill className="user-icon" />
 
-                {/* {showPass ? (
+                {showPass ? (
                   <AiFillEyeInvisible
                     className="pass-icon-hide"
                     onClick={togglePass}
                   />
                 ) : (
                   <AiFillEye className="pass-icon-hide" onClick={togglePass} />
-                )} */}
+                )}
 
                 <FormError error={errors.pass} />
               </div>
@@ -143,7 +144,7 @@ const Login = () => {
                   {loading ? "Loading..." : "Log in"}
                 </button>
                 <div className="signup">
-                  Dont have an account?{" "}
+                  Don't have an account?{" "}
                   <Link to="/register" className="btn-click-here">
                     Click here
                   </Link>
