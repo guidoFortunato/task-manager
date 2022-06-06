@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { useForm } from "react-hook-form";
 // import { erroresFirebase } from "../firebase/erroresFirebase";
 import FormError from "../components/FormError";
+import { alertRegisterSuccess } from "../services/alerts/Alerts";
 
 const Register = () => {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -28,9 +30,12 @@ const Register = () => {
   const onSubmit = async (data) => {
     // console.log(data);
     try {
+      setLoading(true);
       await registerUser(data.email, data.pass);
+      alertRegisterSuccess()
       navigate("/dashboard");
     } catch (error) {
+      setLoading(false);
       switch (error.code) {
         case "auth/weak-password":
           setError("pass", {
@@ -127,7 +132,7 @@ const Register = () => {
                     },
                   })}
                 />
-                
+
                 <FormError error={errors.lastname} />
               </div>
 
@@ -249,8 +254,15 @@ const Register = () => {
               </div>
               {/* {errors.repass && setStyleRequired(true) } */}
 
-              <button type="submit" className="btn btn-primary w-100 mb-3">
-                Register
+              <button
+                type="submit"
+                className={
+                  loading
+                    ? "btn btn-primary w-100 mb-3 loading"
+                    : "btn btn-primary w-100 mb-3"
+                }
+              >
+                {loading ? "Loading..." : "Register"}
               </button>
             </form>
           </div>

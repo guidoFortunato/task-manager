@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard-container'>
-      <h2>Bienvenido {nameCapitalize} al Dashboard </h2>
+      <h2>Welcome {nameCapitalize} to the Dashboard </h2>
     </div>
   );
 }

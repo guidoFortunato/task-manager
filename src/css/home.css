@@ -1,0 +1,67 @@
+.pantalla-dividida{
+  display: flex;
+}
+
+.izquierda{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: aquamarine; */
+  height: 93.80vh;
+  width: 100%;
+}
+
+.derecha{
+  display: none;
+}
+
+h1{
+  line-height: 30px;
+  width: 50%;
+  padding-top: 20px;
+}
+.izquierda p{
+  font-size: 19px;
+  line-height: 30px;
+  width: 50%;
+  padding-top: 40px;
+}
+
+.btn-start{
+  background: #0db8de;
+  padding: 6px 20px;
+  border: 2px solid #0db8de;
+  border-radius: 5px;
+  color: #fff;
+  transition: all 500ms;
+  width: 100px;
+  text-align: center;
+  margin-top: 30px;
+}
+.btn-start:hover{
+  background: transparent;
+  color: #fff;
+} 
+
+
+.task{
+  color: red;
+}
+
+@media screen and (min-width:1260px) {
+  .derecha{
+    display: block;
+    background-image: url('../img/imgFondo1.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 93.8vh;
+  }
+  .izquierda{
+    height: 93.8vh;
+    width: 50%;
+  }
+  
+}
+
+

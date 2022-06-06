@@ -3,26 +3,26 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import FormError from "../components/FormError";
 import { UserContext } from "../context/UserProvider";
-import { FaUserAlt } from "react-icons/fa";
-import { RiLockPasswordFill } from "react-icons/ri";
-import { AiFillEyeInvisible } from "react-icons/ai";
-import { AiFillEye } from "react-icons/ai";
-import { alertSuccess } from "../services/alerts/Alerts";
+// import { FaUserAlt } from "react-icons/fa";
+// import { RiLockPasswordFill } from "react-icons/ri";
+// import { AiFillEyeInvisible } from "react-icons/ai";
+// import { AiFillEye } from "react-icons/ai";
+import { alertLoginSuccess } from "../services/alerts/Alerts";
 
 import "../css/login.css";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
-  const [showPass, setShowPass] = useState(false);
-  const [inputType, setInputType] = useState(false);
+  // const [showPass, setShowPass] = useState(false);
+  // const [inputType, setInputType] = useState(false);
   const [loading, setLoading] = useState(false);
   // const [email, setEmail] = useState("guido@test.com");
   // const [pass, setPass] = useState("riquelme");
 
-  const togglePass = () => {
-    setShowPass(!showPass);
-    setInputType(!inputType);
-  };
+  // const togglePass = () => {
+  //   setShowPass(!showPass);
+  //   setInputType(!inputType);
+  // };
 
   const navigate = useNavigate();
 
@@ -40,11 +40,12 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      setLoading(true)
+      setLoading(true);
       await loginUser(data.email, data.pass);
-      alertSuccess();
+      alertLoginSuccess();
       navigate("/dashboard");
     } catch (error) {
+      setLoading(false);
       if (error.code === "auth/invalid-email") {
         setError("email", {
           message: "invalid email",
@@ -97,14 +98,15 @@ const Login = () => {
                   />
                 </div>
 
-                <FaUserAlt className="user-icon" />
+                {/* <FaUserAlt className="user-icon" /> */}
                 <FormError error={errors.email} />
               </div>
 
               <div className="form-group mb-5 group-input">
                 <label htmlFor="inputPasswordLogin">Password</label>
                 <input
-                  type={inputType ? "text" : "password"}
+                  // type={inputType ? "text" : "password"}
+                  type='text'
                   className="form-control form-control-sm input-login"
                   id="inputPasswordLogin"
                   autoComplete="current-password"
@@ -115,23 +117,30 @@ const Login = () => {
                     },
                   })}
                 />
-                <RiLockPasswordFill className="user-icon" />
+                {/* <RiLockPasswordFill className="user-icon" /> */}
 
-                {showPass ? (
+                {/* {showPass ? (
                   <AiFillEyeInvisible
                     className="pass-icon-hide"
                     onClick={togglePass}
                   />
                 ) : (
                   <AiFillEye className="pass-icon-hide" onClick={togglePass} />
-                )}
+                )} */}
 
                 <FormError error={errors.pass} />
               </div>
 
               <div className="form-group">
-                <button type="submit" className={loading ? "btn btn-primary w-100 loading" : "btn btn-primary w-100"}>
-                  {loading ? 'Loading...' : 'Log in'}
+                <button
+                  type="submit"
+                  className={
+                    loading
+                      ? "btn btn-primary w-100 loading"
+                      : "btn btn-primary w-100"
+                  }
+                >
+                  {loading ? "Loading..." : "Log in"}
                 </button>
                 <div className="signup">
                   Dont have an account?{" "}

@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import PrivateRouteDashboard from "./PrivateRouteDashboard";
 import PrivateRouteLoginRegister from "./PrivateRouteLoginRegister";
 import { UserContext } from '../context/UserProvider';
+import Footer from "../components/Footer";
 
 const AppRouter = () => {
 
@@ -50,6 +51,7 @@ const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      {/* <Footer /> */}
     </>
   );
 };
