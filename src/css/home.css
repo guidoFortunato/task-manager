@@ -1,5 +1,7 @@
 .pantalla-dividida{
   display: flex;
+  position: relative;
+  /* height: 100vh; */
 }
 
 .izquierda{
@@ -7,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   /* background-color: aquamarine; */
-  height: 93.80vh;
+  /* height: 92.9vh;  */
   width: 100%;
 }
 
@@ -51,14 +53,18 @@ h1{
 @media screen and (min-width:1260px) {
   .derecha{
     display: block;
-    background-image: url('../img/imgFondo1.jpg');
+    background-image: url('https://www.definicionabc.com/wp-content/uploads/economia/Finanzas-Publicas-Privadas.jpg');
     background-size: cover;
     background-position: center;
     width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
     height: 93.8vh;
   }
   .izquierda{
-    height: 93.8vh;
+    height: 100%;
     width: 50%;
   }
   

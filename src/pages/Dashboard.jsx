@@ -12,37 +12,58 @@ const Dashboard = () => {
   return (
     <>
       <h2 className="text-center py-3">
-        Welcome {nameCapitalize} to the Dashboard{" "}
+        Welcome {nameCapitalize} to the Dashboard
       </h2>
-      <div className="container">
+      <div className="container-fluid responsive">
         <div className="row">
-          <div className="col-12 col-sm-6 col-lg-3">
-            <div className="container-img">
-              <img src="https://picsum.photos/300/300" alt="img tasks" />
+          <div className="col-12 d-flex justify-content-center">
+            <div className="container-img-responsive">
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>administrar tareas</span>
+              </Link>
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>criptos</span>
+              </Link>
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>criptos</span>
+              </Link>
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>criptos</span>
+              </Link>
             </div>
-            <div className="container-link">
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid desktop">
+        <div className="row w-100">
+          <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
+            <div className="container-img-desktop">
               <Link to="/dashboard/tareas" className="btn-dashboard">
                 <span>administrar tareas</span>
               </Link>
             </div>
           </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <img src="https://picsum.photos/300/300" alt="img cripto" />
-            <Link to="/dashboard/cripto" className="btn-dashboard">
-              <span>sección cripto</span>
-            </Link>
+          <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
+            <div className="container-img-desktop">
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>criptos</span>
+              </Link>
+            </div>
           </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <img src="https://picsum.photos/300/300" alt="img tuentrada" />
-            <Link to="/dashboard/tuentrada" className="btn-dashboard">
-              <span>tuentrada</span>
-            </Link>
+          <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
+            <div className="container-img-desktop">
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>administrar tareas</span>
+              </Link>
+            </div>
           </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <img src="https://picsum.photos/300/300" alt="img" />
-            <Link to="/dashboard/tuentrada" className="btn-dashboard">
-              <span>tuentrada2</span>
-            </Link>
+          <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
+            <div className="container-img-desktop">
+              <Link to="/dashboard/tareas" className="btn-dashboard">
+                <span>administrar tareas</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
