@@ -29,12 +29,40 @@ const AppRouter = () => {
               <Dashboard />
             </PrivateRouteDashboard>
           }
-        >
-          <Route path="tareas" element={<Error404 />}/>
-          <Route path="criptos" element={<Error404 />}/>
-          <Route path="tuentrada1" element={<Error404 />}/>
-          <Route path="tuentrada2" element={<Error404 />}/>
-        </Route>
+        ></Route>
+        <Route
+          path="/dashboard/tareas"
+          element={
+            <PrivateRouteDashboard>
+              <h1>Listado Tareas</h1>
+            </PrivateRouteDashboard>
+          }
+        />
+        <Route
+          path="/dashboard/criptos"
+          element={
+            <PrivateRouteDashboard>
+              <h1>Listado Criptos</h1>
+            </PrivateRouteDashboard>
+          }
+        />
+        <Route
+          path="/dashboard/estadio-obras"
+          element={
+            <PrivateRouteDashboard>
+              <h1>Estadio obras - tuentrada</h1>
+            </PrivateRouteDashboard>
+          }
+        />
+        <Route
+          path="/dashboard/api-mia"
+          element={
+            <PrivateRouteDashboard>
+              <h1>Elementos de una api mia</h1>
+            </PrivateRouteDashboard>
+          }
+        />
+        
 
         <Route
           path="/login"

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import "../css/dashboard.css";
 
@@ -21,14 +21,14 @@ const Dashboard = () => {
               <Link to="/dashboard/tareas" className="btn-dashboard">
                 <span>administrar tareas</span>
               </Link>
-              <Link to="/dashboard/tareas" className="btn-dashboard">
+              <Link to="/dashboard/criptos" className="btn-dashboard">
                 <span>criptos</span>
               </Link>
-              <Link to="/dashboard/tareas" className="btn-dashboard">
-                <span>criptos</span>
+              <Link to="/dashboard/estadio-obras" className="btn-dashboard">
+                <span>estadio obras - tuentrada</span>
               </Link>
-              <Link to="/dashboard/tareas" className="btn-dashboard">
-                <span>criptos</span>
+              <Link to="/dashboard/api-mia" className="btn-dashboard">
+                <span>api mia</span>
               </Link>
             </div>
           </div>
@@ -53,15 +53,15 @@ const Dashboard = () => {
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
-              <Link to="/dashboard/tuentrada1" className="btn-dashboard">
-                <span>administrar tareas</span>
+              <Link to="/dashboard/estadio-obras" className="btn-dashboard">
+                <span>estadio obras - tuentrada</span>
               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
-              <Link to="/dashboard/tuentrada2" className="btn-dashboard">
-                <span>administrar tareas</span>
+              <Link to="/dashboard/api-mia" className="btn-dashboard">
+                <span>api mia</span>
               </Link>
             </div>
           </div>
