@@ -44,8 +44,7 @@ const Navbar = () => {
           <ul className="navbar-nav ms-lg-2">
             <li className="nav-item">
               <NavLink
-                className="nav-link fw-bold borde hover"
-                activeclassname="active"
+                className={(data)=> data.isActive ? 'nav-link fw-bold borde hover active' : 'nav-link fw-bold borde hover' }
                 aria-current="page"
                 to="/"
               >
@@ -58,8 +57,7 @@ const Navbar = () => {
               <>
                 <li className="nav-item me-4">
                   <NavLink
-                    className="nav-link fw-bold borde nav-dashboard"
-                    activeclassname="active"
+                    className={(data)=> data.isActive ? 'nav-link fw-bold borde nav-dashboard active' : 'nav-link fw-bold borde nav-dashboard' }
                     to="/dashboard"
                   >
                     Dashboard

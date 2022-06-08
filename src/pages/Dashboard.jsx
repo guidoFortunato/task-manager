@@ -46,21 +46,21 @@ const Dashboard = () => {
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
-              <Link to="/dashboard/tareas" className="btn-dashboard">
+              <Link to="/dashboard/criptos" className="btn-dashboard">
                 <span>criptos</span>
               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
-              <Link to="/dashboard/tareas" className="btn-dashboard">
+              <Link to="/dashboard/tuentrada1" className="btn-dashboard">
                 <span>administrar tareas</span>
               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
-              <Link to="/dashboard/tareas" className="btn-dashboard">
+              <Link to="/dashboard/tuentrada2" className="btn-dashboard">
                 <span>administrar tareas</span>
               </Link>
             </div>
