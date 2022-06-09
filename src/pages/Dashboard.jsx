@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import "../css/dashboard.css";
 

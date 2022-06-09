@@ -9,7 +9,8 @@ import Register from "../pages/Register";
 import PrivateRouteDashboard from "./PrivateRouteDashboard";
 import PrivateRouteLoginRegister from "./PrivateRouteLoginRegister";
 import { UserContext } from "../context/UserProvider";
-import Footer from "../components/Footer";
+import ListadoTareas from "../pages/ListadoTareas";
+// import Footer from "../components/Footer";
 
 const AppRouter = () => {
   const { user } = useContext(UserContext);
@@ -34,7 +35,7 @@ const AppRouter = () => {
           path="/dashboard/tareas"
           element={
             <PrivateRouteDashboard>
-              <h1>Listado Tareas</h1>
+              <ListadoTareas />
             </PrivateRouteDashboard>
           }
         />
