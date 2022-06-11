@@ -3,10 +3,11 @@
   justify-content: space-between;
   border-radius: 10px;
   background: #1a2226;
-  border: 2px solid #fa4fab;
-  width: 50%;
+  /* border: 2px solid #fa4fab; */
+  width: 80%;
   height: 45px;
   margin-top: 7px;
+  cursor: pointer;
 }
 
 .list-tasks{
@@ -17,7 +18,7 @@
 }
 
 .input-task{
-  width: 50%;
+  width: 80%;
 }
 
 .buttons-task{
@@ -26,14 +27,14 @@
   padding: 0 5px;
   font-size: 15px;
 }
-.button-edit{
+.icon-edit{
   padding-right: 10px;
   padding-bottom: 5px;
   margin: 0;
 }
 
 
-.button-close{
+.icon-close{
   margin: 0;
   padding-bottom: 5px;
 }
@@ -41,11 +42,44 @@
   cursor: pointer;
 }
 
+.btn-edit{
+  background-color: #fa4fab;
+  padding: 6px 20px;
+  border: 2px solid #fa4fab;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #fff;
+  transition: all 500ms;
+  width: 100px;
+  text-align: center;
+  margin-top: 10px;
+  transition: all .4s ease;
+}
+.btn-edit:hover{
+  background: transparent;
+  color: #fff;
+} 
+.btn-add{
+  background: #0db8de;
+  padding: 6px 20px;
+  border: 2px solid #0db8de;
+  border-radius: 5px;
+  color: #fff;
+  transition: all 500ms;
+  width: 100px;
+  text-align: center;
+  margin-top: 10px;
+}
+.btn-add:hover{
+  background: transparent;
+  color: #fff;
+} 
+
 @media screen and (min-width:992px) {
   .tasks-container{
-    width: 75%;
+    width: 30%;
   }
   .input-task{
-    width: 75%;
+    width: 30%;
   }
 }
