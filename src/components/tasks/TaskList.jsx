@@ -4,6 +4,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 
 import "../../css/taskList.css";
+import Task from "./Task";
 // import Task from "./Task";
 
 const TaskList = () => {
@@ -11,7 +12,7 @@ const TaskList = () => {
   const [listTasks, setListTasks] = useState([]);
   const [error, setError] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  const [id, setId] = useState('');
+  const [id, setId] = useState("");
   const [complete, setComplete] = useState(false);
 
   const handleClose = (id) => {
@@ -19,13 +20,13 @@ const TaskList = () => {
     setListTasks(newList);
   };
 
-  const edit = (item)=>{
-    setEditMode(true)
-    setTask(item.taskName)
-    setId(item.id)
-  }
+  const edit = (item) => {
+    setEditMode(true);
+    setTask(item.taskName);
+    setId(item.id);
+  };
 
-  const handleEdit = (e)=>{
+  const handleEdit = (e) => {
     e.preventDefault();
     if (error) {
       setError(false);
@@ -34,12 +35,14 @@ const TaskList = () => {
       setError(true);
       return;
     }
-    const newList = listTasks.map(item => item.id === id ? {id, taskName: task} : item)
-    setListTasks(newList)
-    setTask('')
-    setEditMode(false)
-    setId('')
-  }
+    const newList = listTasks.map((item) =>
+      item.id === id ? { id, taskName: task, complete } : item
+    );
+    setListTasks(newList);
+    setTask("");
+    setEditMode(false);
+    setId("");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,12 +50,18 @@ const TaskList = () => {
       setError(true);
       return;
     }
-    setListTasks([...listTasks,{ id: uuidv4(), taskName: task }]);
+    setListTasks([...listTasks, { id: uuidv4(), taskName: task, complete: complete }]);
 
     console.log("enviado");
     setTask("");
     setError(false);
   };
+
+  const taskCompleted = (id)=>{
+    console.log(listTasks)
+    const newList = listTasks.map(item=> item.id === id ? {id, taskName: task, complete: !complete}: item )
+    setListTasks(newList)
+  }
 
   return (
     <div className="container mt-5 text-center">
@@ -66,7 +75,11 @@ const TaskList = () => {
           >
             <input
               type="text"
-              className={error ? "form-control input-task error-input-focus" : "form-control input-task"}
+              className={
+                error
+                  ? "form-control input-task error-input-focus"
+                  : "form-control input-task"
+              }
               placeholder="Enter a task"
               id="inputTask"
               onChange={(e) => setTask(e.target.value)}
@@ -76,10 +89,7 @@ const TaskList = () => {
               {error && <span>complete the field</span>}
             </div>
             {editMode ? (
-              <button
-                type="submit"
-                className="btn-edit"
-              >
+              <button type="submit" className="btn-edit">
                 edit
               </button>
             ) : (
@@ -89,29 +99,18 @@ const TaskList = () => {
             )}
           </form>
         </div>
-        {listTasks.map((item) => (
-          <div
-            className="col-12 d-flex justify-content-center mb-1"
+
+        {listTasks?.map((item) => (
+          <Task
             key={item.id}
-          >
-            <div  className={complete ? "tasks-container completada" : "tasks-container"}>
-              <div className="list-tasks">{item.taskName}</div>
-              <div className="buttons-task">
-                <div className="icon-edit">
-                  <FiEdit2
-                    onClick={() => edit(item)}
-                    className="cursor-pointer"
-                  />
-                </div>
-                <div className="icon-close">
-                  <AiOutlineCloseCircle
-                    onClick={() => handleClose(item.id)}
-                    className="cursor-pointer"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+            id={item.id}
+            taskName={item.taskName}
+            item={item}
+            edit={edit}
+            handleClose={handleClose}
+            complete={item.complete}
+            taskCompleted={taskCompleted}
+          />
         ))}
       </div>
     </div>

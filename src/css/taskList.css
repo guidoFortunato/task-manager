@@ -95,9 +95,9 @@
   box-shadow: none;
 }
 
-.completada{
-  background-color: #5a01a7 !important;
-  text-decoration: line-through !important;
+.completed{
+  background-color: #5a01a7;
+  /* text-decoration: line-through; */
 }
 
 
