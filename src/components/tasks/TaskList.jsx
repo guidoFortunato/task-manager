@@ -12,6 +12,7 @@ const TaskList = () => {
   const [error, setError] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [id, setId] = useState('');
+  const [complete, setComplete] = useState(false);
 
   const handleClose = (id) => {
     const newList = listTasks.filter((item) => item.id !== id);
@@ -33,7 +34,7 @@ const TaskList = () => {
       setError(true);
       return;
     }
-    const newList = listTasks.map(item => item.id === id ? {id,taskName: task} : item)
+    const newList = listTasks.map(item => item.id === id ? {id, taskName: task} : item)
     setListTasks(newList)
     setTask('')
     setEditMode(false)
@@ -93,7 +94,7 @@ const TaskList = () => {
             className="col-12 d-flex justify-content-center mb-1"
             key={item.id}
           >
-            <div className="tasks-container">
+            <div  className={complete ? "tasks-container completada" : "tasks-container"}>
               <div className="list-tasks">{item.taskName}</div>
               <div className="buttons-task">
                 <div className="icon-edit">
