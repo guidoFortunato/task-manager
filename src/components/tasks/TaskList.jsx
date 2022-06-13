@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { FiEdit2 } from "react-icons/fi";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 
 import "../../css/taskList.css";
 import Task from "./Task";
-// import Task from "./Task";
 
 const TaskList = () => {
   const [task, setTask] = useState("");
@@ -13,7 +10,7 @@ const TaskList = () => {
   const [error, setError] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [id, setId] = useState("");
-  const [complete, setComplete] = useState(false);
+  // const [complete, setComplete] = useState(false);
 
   const handleClose = (id) => {
     const newList = listTasks.filter((item) => item.id !== id);
@@ -36,7 +33,7 @@ const TaskList = () => {
       return;
     }
     const newList = listTasks.map((item) =>
-      item.id === id ? { id, taskName: task, complete } : item
+      item.id === id ? { id, taskName: task, complete: false } : item
     );
     setListTasks(newList);
     setTask("");
@@ -50,7 +47,7 @@ const TaskList = () => {
       setError(true);
       return;
     }
-    setListTasks([...listTasks, { id: uuidv4(), taskName: task, complete: complete }]);
+    setListTasks([...listTasks, { id: uuidv4(), taskName: task, complete: false }]);
 
     console.log("enviado");
     setTask("");
@@ -65,7 +62,6 @@ const TaskList = () => {
       }
       return item
     } )
-    console.log(newList)
     setListTasks(newList)
   }
 

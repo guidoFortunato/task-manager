@@ -16,6 +16,7 @@
   align-items: center;
   font-size: 19px;
   padding-left: 10px;
+  width: 100%;
 }
 
 .input-task{
@@ -98,6 +99,7 @@
 .completed{
   background-color: #5a01a7;
   text-decoration: line-through;
+  border-radius: 10px 0 0 10px;
   /* border: 1px solid #fff; */
 }
 
