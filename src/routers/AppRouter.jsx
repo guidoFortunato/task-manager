@@ -10,6 +10,7 @@ import PrivateRouteDashboard from "./PrivateRouteDashboard";
 import PrivateRouteLoginRegister from "./PrivateRouteLoginRegister";
 import { UserContext } from "../context/UserProvider";
 import TaskList from "../components/tasks/TaskList";
+import CryptocurrencyList from "../components/cryptocurrencies/CryptocurrencyList";
 
 
 // import Footer from "../components/Footer";
@@ -45,7 +46,7 @@ const AppRouter = () => {
           path="/dashboard/criptos"
           element={
             <PrivateRouteDashboard>
-              <h1>Listado Criptos</h1>
+              <CryptocurrencyList />
             </PrivateRouteDashboard>
           }
         />

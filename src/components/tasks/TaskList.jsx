@@ -58,8 +58,14 @@ const TaskList = () => {
   };
 
   const taskCompleted = (id)=>{
-    console.log(listTasks)
-    const newList = listTasks.map(item=> item.id === id ? {id, taskName: task, complete: !complete}: item )
+    // const newList = listTasks.map(item=> item.id === id ? {id, taskName: task, complete: !complete}: item )
+    const newList = listTasks.map(item => {
+      if (item.id === id ) {
+        item.complete = !item.complete
+      }
+      return item
+    } )
+    console.log(newList)
     setListTasks(newList)
   }
 
