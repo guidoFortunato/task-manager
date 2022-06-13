@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import "../../css/taskList.css";
@@ -47,23 +48,26 @@ const TaskList = () => {
       setError(true);
       return;
     }
-    setListTasks([...listTasks, { id: uuidv4(), taskName: task, complete: false }]);
+    setListTasks([
+      ...listTasks,
+      { id: uuidv4(), taskName: task, complete: false },
+    ]);
 
     console.log("enviado");
     setTask("");
     setError(false);
   };
 
-  const taskCompleted = (id)=>{
+  const taskCompleted = (id) => {
     // const newList = listTasks.map(item=> item.id === id ? {id, taskName: task, complete: !complete}: item )
-    const newList = listTasks.map(item => {
-      if (item.id === id ) {
-        item.complete = !item.complete
+    const newList = listTasks.map((item) => {
+      if (item.id === id) {
+        item.complete = !item.complete;
       }
-      return item
-    } )
-    setListTasks(newList)
-  }
+      return item;
+    });
+    setListTasks(newList);
+  };
 
   return (
     <div className="container mt-5 text-center">
@@ -90,15 +94,35 @@ const TaskList = () => {
             <div className="container-error">
               {error && <span>complete the field</span>}
             </div>
-            {editMode ? (
-              <button type="submit" className="btn-edit">
-                edit
-              </button>
-            ) : (
-              <button type="submit" className="btn-add">
-                add
-              </button>
-            )}
+            <div className="container-buttons-tasklist">
+              {editMode ? (
+                <>
+                  <div>
+                    <button type="submit" className="btn-edit me-lg-3">
+                      edit
+                    </button>
+                  </div>
+                  <div>
+                    <Link to="/dashboard" className="btn-add">
+                      back to dashboard
+                    </Link>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <button type="submit" className="btn-add me-lg-3">
+                      add
+                    </button>
+                  </div>
+                  <div>
+                    <Link to="/dashboard" className="btn-add">
+                      back to dashboard
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
           </form>
         </div>
 
