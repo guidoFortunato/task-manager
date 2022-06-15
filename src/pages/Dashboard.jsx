@@ -12,23 +12,23 @@ const Dashboard = () => {
   return (
     <>
       <h2 className="text-center py-3">
-        Welcome {nameCapitalize} to the Dashboard
+        Welcome {nameCapitalize} to your Dashboard
       </h2>
       <div className="container-fluid responsive">
         <div className="row">
           <div className="col-12 d-flex justify-content-center">
             <div className="container-img-responsive">
               <Link to="/dashboard/tareas" className="btn-dashboard">
-                <span>administrar tareas</span>
+                <span>manage tasks</span>
               </Link>
               <Link to="/dashboard/criptos" className="btn-dashboard">
-                <span>criptos</span>
+                <span>cryptos</span>
               </Link>
               <Link to="/dashboard/estadio-obras" className="btn-dashboard">
-                <span>estadio obras - tuentrada</span>
+                <span>estadio obras</span>
               </Link>
               <Link to="/dashboard/api-mia" className="btn-dashboard">
-                <span>api mia</span>
+                <span>information</span>
               </Link>
             </div>
           </div>
