@@ -55,7 +55,7 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto">
             {user ? (
               <>
-                <li className="nav-item me-4">
+                <li className="nav-item me-lg-4">
                   <NavLink
                     className={(data)=> data.isActive ? 'nav-link fw-bold borde nav-dashboard active' : 'nav-link fw-bold borde nav-dashboard' }
                     to="/dashboard"
@@ -63,7 +63,7 @@ const Navbar = () => {
                     Dashboard
                   </NavLink>
                 </li>
-                <li className="nav-item me-4">
+                <li className="nav-item me-lg-4">
                   <span className="nav-link pointer borde hover" onClick={handleLogout}>
                     Logout
                   </span>

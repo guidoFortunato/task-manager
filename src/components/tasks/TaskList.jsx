@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import "../../css/taskList.css";
 import Task from "./Task";
 
+const localTasks = JSON.parse(localStorage.getItem('tasks'))
+
 const TaskList = () => {
   const [task, setTask] = useState("");
-  const [listTasks, setListTasks] = useState([]);
+  const [listTasks, setListTasks] = useState(localTasks || []);
   const [error, setError] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [id, setId] = useState("");
-  // const [complete, setComplete] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(listTasks))
+  }, [listTasks]);
 
   const handleClose = (id) => {
     const newList = listTasks.filter((item) => item.id !== id);
@@ -52,14 +57,11 @@ const TaskList = () => {
       ...listTasks,
       { id: uuidv4(), taskName: task, complete: false },
     ]);
-
-    console.log("enviado");
     setTask("");
     setError(false);
   };
 
   const taskCompleted = (id) => {
-    // const newList = listTasks.map(item=> item.id === id ? {id, taskName: task, complete: !complete}: item )
     const newList = listTasks.map((item) => {
       if (item.id === id) {
         item.complete = !item.complete;

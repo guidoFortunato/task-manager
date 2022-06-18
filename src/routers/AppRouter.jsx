@@ -59,10 +59,10 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/dashboard/api-mia"
+          path="/dashboard/information"
           element={
             <PrivateRouteDashboard>
-              <h1>Elementos de una api mia</h1>
+              <h1>Information</h1>
             </PrivateRouteDashboard>
           }
         />

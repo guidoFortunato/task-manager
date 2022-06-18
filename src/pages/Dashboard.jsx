@@ -5,7 +5,6 @@ import "../css/dashboard.css";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
   const nameLower = user.email.split("@")[0].toLowerCase();
   const nameCapitalize = nameLower.charAt(0).toUpperCase() + nameLower.slice(1);
 
@@ -25,9 +24,9 @@ const Dashboard = () => {
                 <span>cryptos</span>
               </Link>
               <Link to="/dashboard/estadio-obras" className="btn-dashboard">
-                <span>estadio obras</span>
+                <span>obras stadium</span>
               </Link>
-              <Link to="/dashboard/api-mia" className="btn-dashboard">
+              <Link to="/dashboard/information" className="btn-dashboard">
                 <span>information</span>
               </Link>
             </div>
@@ -54,14 +53,14 @@ const Dashboard = () => {
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
               <Link to="/dashboard/estadio-obras" className="btn-dashboard">
-                <span>estadio obras - tuentrada</span>
+                <span>obras stadium</span>
               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
               <Link to="/dashboard/api-mia" className="btn-dashboard">
-                <span>api mia</span>
+                <span>information</span>
               </Link>
             </div>
           </div>

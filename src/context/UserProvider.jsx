@@ -13,7 +13,6 @@ const UserProvider = (props) => {
 
   useEffect(() => {
     const unsuscribe = onAuthStateChanged(auth, userFromFirebase =>{
-      console.log(userFromFirebase)
       if (userFromFirebase){
         const { email, photoURL, displayName, uid } = userFromFirebase
         setUser({email, photoURL, displayName, uid})
