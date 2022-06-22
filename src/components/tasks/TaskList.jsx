@@ -100,7 +100,7 @@ const TaskList = () => {
               {editMode ? (
                 <>
                   <div>
-                    <button type="submit" className="btn-edit me-lg-3">
+                    <button type="submit" className="btn-edit">
                       edit
                     </button>
                   </div>
@@ -113,7 +113,7 @@ const TaskList = () => {
               ) : (
                 <>
                   <div>
-                    <button type="submit" className="btn-add me-lg-3">
+                    <button type="submit" className="btn-add">
                       add
                     </button>
                   </div>

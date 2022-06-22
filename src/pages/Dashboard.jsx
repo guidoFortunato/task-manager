@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <span>manage tasks</span>
               </Link>
               <Link to="/dashboard/criptos" className="btn-dashboard">
-                <span>cryptos</span>
+                <span>crypto list</span>
               </Link>
               <Link to="/dashboard/estadio-obras" className="btn-dashboard">
                 <span>obras stadium</span>
@@ -46,7 +46,7 @@ const Dashboard = () => {
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
               <Link to="/dashboard/criptos" className="btn-dashboard">
-                <span>criptos</span>
+                <span>crypto list</span>
               </Link>
             </div>
           </div>

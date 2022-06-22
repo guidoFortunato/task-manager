@@ -55,6 +55,10 @@
   margin-top: 28px;
 }
 
+.ancho-search{
+  width: 100%;
+}
+
 
 @media screen and (min-width: 417px){
   .btn-detail {
@@ -64,6 +68,9 @@
 
 @media screen and (min-width: 992px) {
   .ancho-table {
+    width: 50%;
+  }
+  .ancho-search{
     width: 50%;
   }
   .container-coin {

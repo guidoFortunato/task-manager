@@ -8,7 +8,12 @@ const tableRow = ["#", "Coin", "Detail", "Price"];
 
 const CryptocurrencyList = () => {
   const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
+  const filteredCoins = coins.filter(item => item.name.toLowerCase().includes(search.toLowerCase()) || item.symbol.toLowerCase().includes(search.toLowerCase()))
+
+
 
   const url =
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10page=1&sparkline=false";
@@ -27,8 +32,17 @@ const CryptocurrencyList = () => {
 
   return !isLoading ? (
     <div className="container img-fondo">
-      <h2 className="text-center">Listado de criptomonedas</h2>
       <div className="row">
+        <div className="col-12 d-flex text-center w-100 justify-content-center">
+          <div className="container-search ancho-search">
+            <input
+              type="text"
+              placeholder="Search a coin"
+              className="form-control bg-dark text-light mt-3"
+              onChange={e => setSearch(e.target.value)}
+            />
+          </div>
+        </div>
         <div className="col-12 d-flex justify-content-center">
           <table className="table table-dark ancho-table">
             <thead>
@@ -41,7 +55,7 @@ const CryptocurrencyList = () => {
               </tr>
             </thead>
             <tbody>
-              {coins.map((item, index) => (
+              {filteredCoins.map((item, index) => (
                 <tr key={item.id}>
                   <td>{index + 1}</td>
                   <td>
@@ -72,9 +86,7 @@ const CryptocurrencyList = () => {
                     </div>
                   </td>
                   <td>
-                    <div className="margin-price">
-                      ${item.current_price}
-                    </div>
+                    <div className="margin-price">${item.current_price}</div>
                   </td>
                 </tr>
               ))}

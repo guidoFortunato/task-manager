@@ -53,7 +53,7 @@
   border-radius: 5px;
   color: #fff;
   transition: all 500ms;
-  width: 200px;
+  width: 215px;
   text-align: center;
   margin-top: 10px;
   transition: all 0.4s ease;
@@ -73,7 +73,7 @@
   font-size: 17px;
   color: #fff;
   transition: all 500ms;
-  width: 200px;
+  width: 215px;
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -123,7 +123,7 @@
   .container-error {
     width: 45%;
   }
-  .container-buttons-tasklist {
+  /* .container-buttons-tasklist {
     flex-direction: row;
-  }
+  } */
 }

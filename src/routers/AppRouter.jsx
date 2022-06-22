@@ -12,7 +12,7 @@ import { UserContext } from "../context/UserProvider";
 import TaskList from "../components/tasks/TaskList";
 import CryptocurrencyList from "../components/cryptocurrencies/CryptocurrencyList";
 import CryptoDetail from "../pages/CryptoDetail";
-
+import ErrorBoundary from "../components/error/ErrorBoundary.jsx";
 
 // import Footer from "../components/Footer";
 
@@ -55,7 +55,9 @@ const AppRouter = () => {
           path="/dashboard/criptos/:name"
           element={
             <PrivateRouteDashboard>
-              <CryptoDetail />
+              <ErrorBoundary>
+                <CryptoDetail />
+              </ErrorBoundary>
             </PrivateRouteDashboard>
           }
         />
@@ -75,7 +77,6 @@ const AppRouter = () => {
             </PrivateRouteDashboard>
           }
         />
-        
 
         <Route
           path="/login"
