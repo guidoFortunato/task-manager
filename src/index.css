@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", "Roboto", sans-serif;
   background-color: #222d32 !important;
   height: 100vh;
   color: #0db8de;
@@ -12,21 +12,20 @@ body {
   font-size: 12px;
 }
 
-
-.global-container{
+.global-container {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #0db8de;
 }
-form{
+form {
   /* padding-top: 10px; */
   font-size: 14px;
   /* margin-top: 30px; */
 }
 
-.login-form{
+.login-form {
   width: 380px;
   min-height: 450px;
   margin: 20px;
@@ -34,20 +33,20 @@ form{
   border-radius: 10px !important;
 }
 
-input[type='email']{
+input[type="email"] {
   margin-top: 10px;
 }
-input[type='password']{
+input[type="password"] {
   margin-top: 10px;
 }
-input[type='text']{
+input[type="text"] {
   margin-top: 10px;
 }
 
-input[type='email'],
-input[type='password'],
-input[type='text'],
-input[type='number']{
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"] {
   background: #1a2226;
   border: 2px solid #0db8de;
   border-radius: 10px;
@@ -55,25 +54,25 @@ input[type='number']{
   color: #0db8de;
 }
 
-.input-login{
+.input-login {
   padding: 0 27px;
 }
 
-input[type='email']:focus,
-input[type='password']:focus,
-input[type='text']:focus,
-input[type='number']:focus{
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
   background: #1a2226;
   border: 2px solid #1a2226;
   color: #0db8de;
 }
 
-.card-title{
+.card-title {
   font-weight: 700;
   padding-top: 10px;
 }
 
-.btn{
+.btn {
   background: #0db8de !important;
   font-size: 14px;
   transform: translateY(10px);
@@ -89,25 +88,25 @@ input[type='number']:focus{
   box-shadow: none;
 }
 
-.signup{
+.signup {
   text-align: center;
   padding-top: 25px;
 }
 
-.btn-click-here{
+.btn-click-here {
   text-decoration: none;
   color: #fa4fab;
   transition: all 400ms;
 }
-.btn-click-here:hover{
+.btn-click-here:hover {
   color: #ca5e98;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-nav{
+nav {
   user-select: none; /*el texto no se puede seleccionar*/
 }
 
@@ -116,23 +115,20 @@ nav{
   border: 2px solid #000 !important;
 } */
 
-.color-errors{
+.color-errors {
   color: rgb(218, 45, 45);
 }
 
-.nav-icon{
+.nav-icon {
   display: none;
 }
 
-.btn-register-login{
+.btn-register-login {
   border: 2px solid #212529;
 }
 
-
-
-
-@media screen and (min-width: 992px){
-  .btn-register-login{
+@media screen and (min-width: 992px) {
+  .btn-register-login {
     background: transparent !important;
     padding: 6px 20px;
     border: 2px solid #0db8de;
@@ -141,56 +137,52 @@ nav{
     transition: all 500ms;
     /* width: 25%; */
   }
-  .btn-register-login:hover{
+  .btn-register-login:hover {
     background: #0db8de !important;
     color: #fa4fab;
-  } 
-  .nav-icon{
+  }
+  .nav-icon {
     display: inline;
   }
 }
 
-
-
-.img-icono{
+.img-icono {
   width: 60px;
 }
 
-.borde{
+.borde {
   border: 2px solid #212529;
 }
 
-.active{
+.active {
   color: #fa4fab !important;
 }
 
-.hover:hover{
+.hover:hover {
   color: #fa4fab !important;
   transition: all 400ms;
 }
 
 /*iconos login*/
 
-.group-input{
+.group-input {
   position: relative;
 }
 
-.user-icon{
+.user-icon {
   position: absolute;
   top: 39px;
   left: 8px;
 }
-.pass-icon-hide{
+.pass-icon-hide {
   position: absolute;
   top: 39px;
   left: 320px;
   cursor: pointer;
 }
 
-.loading{
+.loading {
   background-color: #238297 !important;
 }
-
-
 
 /******************/

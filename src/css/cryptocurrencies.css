@@ -1,0 +1,87 @@
+.img-fondo{
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  ),url('../img/fondoBitcoin.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 0.93;
+}
+
+
+.img-crypto {
+  width: 20px;
+}
+
+.btn-detail {
+  background: #0e5d6e;
+  padding: 4px 6px;
+  border: 1px solid #0e5d6e;
+  border-radius: 5px;
+  transition: all 500ms;
+}
+.btn-detail:hover {
+  background: transparent;
+}
+
+.link-coindetail {
+  text-decoration: none;
+  color: #fff;
+}
+.link-coindetail:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.container-coin {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.margin-name {
+  margin-top: 7px;
+}
+
+.container-detail {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.margin-price{
+  margin-top: 28px;
+}
+
+
+@media screen and (min-width: 417px){
+  .btn-detail {
+    padding: 20px 6px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .ancho-table {
+    width: 50%;
+  }
+  .container-coin {
+    flex-direction: row;
+  }
+  .margin-name {
+    margin-top: 0;
+  }
+  .container-detail {
+    display: block;
+    height: auto;
+  }
+  .btn-detail {
+    padding: 4px 6px;
+  }
+  .margin-price{
+    margin-top: 6px;
+  }
+}
+
+
