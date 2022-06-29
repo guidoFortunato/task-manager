@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { FaUserAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { AiFillEyeInvisible } from "react-icons/ai";
-import { AiFillEye } from "react-icons/ai";
+// import { AiFillEyeInvisible } from "react-icons/ai";
+// import { AiFillEye } from "react-icons/ai";
 import { alertLoginSuccess } from "../services/alerts/Alerts";
 
 import FormError from "../components/FormError";
@@ -14,16 +14,14 @@ import "../css/login.css";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
-  const [showPass, setShowPass] = useState(false);
-  const [inputType, setInputType] = useState(false);
+  // const [showPass, setShowPass] = useState(false);
+  // const [inputType, setInputType] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const [email, setEmail] = useState("guido@test.com");
-  // const [pass, setPass] = useState("riquelme");
 
-  const togglePass = () => {
-    setShowPass(!showPass);
-    setInputType(!inputType);
-  };
+  // const togglePass = () => {
+  //   setShowPass(!showPass);
+  //   setInputType(!inputType);
+  // };
 
   const navigate = useNavigate();
 
@@ -96,6 +94,11 @@ const Login = () => {
                         value: true,
                         message: "required field",
                       },
+                      // pattern: {
+                      //   value:
+                      //     /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/,
+                      //   message: "Incorrect email format",
+                      // },
                     })}
                   />
                 </div>
@@ -107,8 +110,8 @@ const Login = () => {
               <div className="form-group mb-5 group-input">
                 <label htmlFor="inputPasswordLogin">Password</label>
                 <input
-                  type={inputType ? "text" : "password"}
-                  // type='text'
+                  // type={inputType ? "text" : "password"}
+                  type='password'
                   className="form-control form-control-sm input-login"
                   placeholder="enter a password"
                   id="inputPasswordLogin"
