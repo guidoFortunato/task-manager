@@ -16,7 +16,7 @@ const CryptocurrencyList = () => {
 
 
   const url =
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100page=1&sparkline=false";
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=40page=1&sparkline=false";
 
   useEffect(() => {
     const getData = async () => {
@@ -74,14 +74,14 @@ const CryptocurrencyList = () => {
                   </td>
                   <td>
                     <div className="container-detail">
-                      <button className="btn-detail">
+                      
                         <Link
                           to={`/dashboard/criptos/${item.id}`}
-                          className="link-coindetail"
+                          className="btn-detail"
                         >
                           ver detalle
                         </Link>
-                      </button>
+                      
                     </div>
                   </td>
                   <td>
