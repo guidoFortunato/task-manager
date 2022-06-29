@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Error404 = () => {
   return (
     <div>
-      <h2>Error 404 not found</h2>
-      <button className="btn-back">
-        <Link to="/">back home</Link>
-      </button>
+      <h1 className=" mb-4">Error 404</h1>
+      <Link className="btn-back" to="/">
+        back home
+      </Link>
     </div>
   );
 };

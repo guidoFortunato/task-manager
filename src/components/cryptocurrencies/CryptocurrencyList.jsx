@@ -10,10 +10,12 @@ const CryptocurrencyList = () => {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
-  const filteredCoins = coins.filter(item => item.name.toLowerCase().includes(search.toLowerCase()) || item.symbol.toLowerCase().includes(search.toLowerCase()))
 
-
+  const filteredCoins = coins.filter(
+    (item) =>
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.symbol.toLowerCase().includes(search.toLowerCase())
+  );
 
   const url =
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=40page=1&sparkline=false";
@@ -31,15 +33,22 @@ const CryptocurrencyList = () => {
 
   return !isLoading ? (
     <div className="container img-fondo">
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-12 d-flex text-center w-100 justify-content-center">
           <div className="container-search ancho-search">
-            <input
-              type="text"
-              placeholder="Search a coin"
-              className="form-control bg-dark text-light mt-3"
-              onChange={e => setSearch(e.target.value)}
-            />
+           
+              <Link className="btn-detail mt-5" to="/dashboard">
+                back to dashboard
+              </Link>
+            
+            
+              <input
+                type="text"
+                placeholder="Search a coin"
+                className="form-control bg-dark text-light mt-3"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            
           </div>
         </div>
         <div className="col-12 d-flex justify-content-center">
@@ -74,14 +83,12 @@ const CryptocurrencyList = () => {
                   </td>
                   <td>
                     <div className="container-detail">
-                      
-                        <Link
-                          to={`/dashboard/criptos/${item.id}`}
-                          className="btn-detail"
-                        >
-                          ver detalle
-                        </Link>
-                      
+                      <Link
+                        to={`/dashboard/criptos/${item.id}`}
+                        className="btn-detail"
+                      >
+                        ver detalle
+                      </Link>
                     </div>
                   </td>
                   <td>
