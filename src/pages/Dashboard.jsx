@@ -59,7 +59,7 @@ const Dashboard = () => {
           </div>
           <div className="col-lg-6 col-xl-3 mb-3 mb-xl-0 d-flex justify-content-center">
             <div className="container-img-desktop">
-              <Link to="/dashboard/api-mia" className="btn-dashboard">
+              <Link to="/dashboard/information" className="btn-dashboard">
                 <span>information</span>
               </Link>
             </div>

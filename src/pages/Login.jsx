@@ -34,8 +34,8 @@ const Login = () => {
     setError,
   } = useForm({
     defaultValues: {
-      email: "guido@test.com",
-      pass: "123456",
+      email: "",
+      pass: "",
     },
   });
 
@@ -87,6 +87,7 @@ const Login = () => {
                 <div className="container-input">
                   <input
                     type="email"
+                    placeholder="enter an email"
                     className="form-control form-control-sm input-login"
                     id="inputEmailLogin"
                     autoComplete="username"
@@ -109,6 +110,7 @@ const Login = () => {
                   type={inputType ? "text" : "password"}
                   // type='text'
                   className="form-control form-control-sm input-login"
+                  placeholder="enter a password"
                   id="inputPasswordLogin"
                   autoComplete="current-password"
                   {...register("pass", {
@@ -120,14 +122,14 @@ const Login = () => {
                 />
                 <RiLockPasswordFill className="user-icon" />
 
-                {showPass ? (
+                {/* {showPass ? (
                   <AiFillEyeInvisible
                     className="pass-icon-hide"
                     onClick={togglePass}
                   />
                 ) : (
                   <AiFillEye className="pass-icon-hide" onClick={togglePass} />
-                )}
+                )} */}
 
                 <FormError error={errors.pass} />
               </div>

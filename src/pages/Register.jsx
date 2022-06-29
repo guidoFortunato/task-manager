@@ -16,12 +16,12 @@ const Register = () => {
     setError,
   } = useForm({
     defaultValues: {
-      name: "guido",
-      lastname: "fortunato",
-      email: "guido@test.com",
-      confirmEmail: "guido@test.com",
-      pass: "123456",
-      repass: "123456",
+      name: "",
+      lastname: "",
+      email: "",
+      confirmEmail: "",
+      pass: "",
+      repass: "",
     },
   });
 
@@ -87,6 +87,7 @@ const Register = () => {
                 <label htmlFor="inputName">Name</label>
                 <input
                   type="text"
+                  placeholder="enter a name"
                   className="form-control form-control-sm"
                   id="inputName"
                   {...register("name", {
@@ -114,6 +115,7 @@ const Register = () => {
                 <label htmlFor="inputLastname">Lastname</label>
                 <input
                   type="text"
+                  placeholder="enter a lastname"
                   className="form-control form-control-sm"
                   id="inputLastname"
                   {...register("lastname", {
@@ -140,6 +142,7 @@ const Register = () => {
                 <label htmlFor="inputEmailRegister">Email Address</label>
                 <input
                   type="email"
+                  placeholder="enter an email"
                   className="form-control form-control-sm"
                   id="inputEmailRegister"
                   autoComplete="username"
@@ -169,6 +172,7 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
+                  placeholder="confirm email"
                   className="form-control form-control-sm"
                   id="confirmInputEmailRegister"
                   autoComplete="username"
@@ -194,6 +198,7 @@ const Register = () => {
                 <label htmlFor="inputPasswordRegister">Password</label>
                 <input
                   type="password"
+                  placeholder="enter a password"
                   className="form-control form-control-sm"
                   id="inputPasswordRegister"
                   autoComplete="new-password"
@@ -231,6 +236,7 @@ const Register = () => {
                 </label>
                 <input
                   type="password"
+                  placeholder="confirm password"
                   // className={styleRequired ? 'form-control form-control-sm error-input' : 'form-control form-control-sm'}
                   className="form-control form-control-sm"
                   id="inputConfirmPasswordRegister"

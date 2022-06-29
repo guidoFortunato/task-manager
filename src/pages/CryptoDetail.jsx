@@ -13,7 +13,6 @@ const CryptoDetail = () => {
       setIsLoading(true);
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data);
       setCoins(data);
       setIsLoading(false);
     };
