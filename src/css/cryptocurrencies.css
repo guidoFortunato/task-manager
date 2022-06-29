@@ -1,4 +1,4 @@
-.img-fondo{
+/* .img-fondo{
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.7),
     rgba(0, 0, 0, 0.7)
@@ -8,7 +8,7 @@
   background-attachment: fixed;
   background-size: cover;
   opacity: 0.93;
-}
+} */
 
 
 .img-crypto {
@@ -50,6 +50,7 @@
   align-items: center;
   height: 80px;
 }
+
 
 .margin-price{
   margin-top: 28px;

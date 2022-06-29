@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter, Link } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
@@ -14,6 +14,8 @@ import CryptocurrencyList from "../components/cryptocurrencies/CryptocurrencyLis
 import CryptoDetail from "../pages/CryptoDetail";
 import ErrorBoundary from "../components/error/ErrorBoundary.jsx";
 
+import "../css/error404.css";
+
 // import Footer from "../components/Footer";
 
 const AppRouter = () => {
@@ -26,7 +28,7 @@ const AppRouter = () => {
   return (
     <>
       <HashRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route
             path="/dashboard"
@@ -66,7 +68,12 @@ const AppRouter = () => {
             path="/dashboard/estadio-obras"
             element={
               <PrivateRouteDashboard>
-                <h1>Estadio obras - tuentrada</h1>
+                <div>
+                  <h1 className=" mb-4">Estadio obras - tuentrada</h1>
+                  <Link className="btn-back" to="/dashboard">
+                    back to dashboard
+                  </Link>
+                </div>
               </PrivateRouteDashboard>
             }
           />
@@ -74,7 +81,12 @@ const AppRouter = () => {
             path="/dashboard/information"
             element={
               <PrivateRouteDashboard>
-                <h1>Information</h1>
+                <div>
+                  <h1 className=" mb-4">Information</h1>
+                  <Link className="btn-back" to="/dashboard">
+                    back to dashboard
+                  </Link>
+                </div>
               </PrivateRouteDashboard>
             }
           />

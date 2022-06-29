@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import '../css/cryptoDetail.css'
 
 const CryptoDetail = () => {
   const { name } = useParams();
@@ -32,7 +33,7 @@ const CryptoDetail = () => {
                 className="card-img-top"
                 alt={coins.name}
               />
-              <h5 className="card-title">{coins.name}</h5>
+              <h3 className="card-title mb-3">{coins.name}</h3>
               <p className="card-text">
                 <span>Symbol: {coins.symbol}</span>
               </p>
@@ -75,6 +76,9 @@ const CryptoDetail = () => {
               <p className="card-text">
                 <span>Total supply: {coins.market_data.total_supply}</span>
               </p>
+              <Link className="btn-back" to="/dashboard/criptos">
+                    <span>back to list</span>
+              </Link>
             </div>
           </div>
         </div>
