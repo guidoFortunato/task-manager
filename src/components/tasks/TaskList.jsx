@@ -21,6 +21,10 @@ const TaskList = () => {
   const handleClose = (id) => {
     const newList = listTasks.filter((item) => item.id !== id);
     setListTasks(newList);
+    setTask('')
+    if (editMode) {
+      setEditMode(false)      
+    }
   };
 
   const edit = (item) => {
