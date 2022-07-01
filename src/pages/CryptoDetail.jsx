@@ -14,6 +14,7 @@ const CryptoDetail = () => {
       setIsLoading(true);
       const res = await fetch(url);
       const data = await res.json();
+      console.log(data)
       setCoins(data);
       setIsLoading(false);
     };
@@ -41,7 +42,7 @@ const CryptoDetail = () => {
                 <span>Price: ${coins.market_data.current_price.usd}</span>
               </p>
               <p className="card-text">
-                <span className="me-2">Price change:</span>
+                <span className="me-2">Price change 24hs:</span>
                 <span
                   className={
                     coins.market_data.price_change_percentage_24h > 0
@@ -62,7 +63,7 @@ const CryptoDetail = () => {
                 <span className="me-2">ATH change percentage:</span>
                 <span
                   className={
-                    coins.market_data.price_change_percentage_24h > 0
+                    coins.market_data.ath_change_percentage.usd > 0
                       ? "text-success"
                       : "text-danger"
                   }
