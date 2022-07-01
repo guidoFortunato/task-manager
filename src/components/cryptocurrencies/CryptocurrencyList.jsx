@@ -36,19 +36,16 @@ const CryptocurrencyList = () => {
       <div className="row mt-3">
         <div className="col-12 d-flex text-center w-100 justify-content-center">
           <div className="container-search ancho-search">
-           
-              <Link className="btn-detail mt-5" to="/dashboard">
-                back to dashboard
-              </Link>
-            
-            
-              <input
-                type="text"
-                placeholder="Search a coin"
-                className="form-control bg-dark text-light mt-3"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            
+            <Link className="btn-detail mt-5" to="/dashboard">
+              back to dashboard
+            </Link>
+
+            <input
+              type="text"
+              placeholder="Search a coin"
+              className="form-control bg-dark text-light mt-3"
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
         </div>
         <div className="col-12 d-flex justify-content-center">
@@ -63,39 +60,49 @@ const CryptocurrencyList = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredCoins.map((item, index) => (
-                <tr key={item.id}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <div className="container-coin">
-                      <img
-                        src={item.image}
-                        alt={item.id}
-                        className="img-crypto me-lg-2"
-                      />
+              {filteredCoins.length > 0 ? (
+                filteredCoins.map((item, index) => (
+                  <tr key={item.id}>
+                    {console.log(search)}
+                    {console.log(filteredCoins)}
+                    <td>{index + 1}</td>
+                    <td>
+                      <div className="container-coin">
+                        <img
+                          src={item.image}
+                          alt={item.id}
+                          className="img-crypto me-lg-2"
+                        />
 
-                      <span className="margin-name">{item.name}</span>
+                        <span className="margin-name">{item.name}</span>
 
-                      <span className="ms-lg-2 text-muted text-uppercase">
-                        {item.symbol}
-                      </span>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="container-detail">
-                      <Link
-                        to={`/dashboard/criptos/${item.id}`}
-                        className="btn-detail"
-                      >
-                        ver detalle
-                      </Link>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="margin-price">${item.current_price}</div>
+                        <span className="ms-lg-2 text-muted text-uppercase">
+                          {item.symbol}
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="container-detail">
+                        <Link
+                          to={`/dashboard/criptos/${item.id}`}
+                          className="btn-detail"
+                        >
+                          ver detalle
+                        </Link>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="margin-price">${item.current_price}</div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4}>
+                    <span className="text-error">there is no cryptocurrency called "{search}" in this listing</span>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

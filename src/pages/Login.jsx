@@ -32,8 +32,8 @@ const Login = () => {
     setError,
   } = useForm({
     defaultValues: {
-      email: "",
-      pass: "",
+      email: "guido@test.com",
+      pass: "123456",
     },
   });
 

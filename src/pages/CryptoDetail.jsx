@@ -14,7 +14,6 @@ const CryptoDetail = () => {
       setIsLoading(true);
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data)
       setCoins(data);
       setIsLoading(false);
     };
@@ -34,15 +33,15 @@ const CryptoDetail = () => {
                 className="card-img-top"
                 alt={coins.name}
               />
-              <h3 className="card-title mb-3">{coins.name}</h3>
+              <h3 className="card-title mb-3 text-white">{coins.name}</h3>
               <p className="card-text">
-                <span>Symbol: {coins.symbol}</span>
+                <span className="text-white">Symbol: </span><span className="text-uppercase">{coins.symbol}</span>
               </p>
               <p className="card-text">
-                <span>Price: ${coins.market_data.current_price.usd}</span>
+              <span className="text-white">Price: </span> <span>${coins.market_data.current_price.usd}</span>
               </p>
               <p className="card-text">
-                <span className="me-2">Price change 24hs:</span>
+                <span className="me-2 text-white">Price change 24hs:</span>
                 <span
                   className={
                     coins.market_data.price_change_percentage_24h > 0
@@ -57,10 +56,10 @@ const CryptoDetail = () => {
                 </span>
               </p>
               <p className="card-text">
-                <span>ATH: ${coins.market_data.ath.usd}</span>
+              <span className="text-white">ATH: </span><span>${coins.market_data.ath.usd}</span>
               </p>
               <p className="card-text">
-                <span className="me-2">ATH change percentage:</span>
+                <span className="me-2 text-white">ATH change percentage:</span>
                 <span
                   className={
                     coins.market_data.ath_change_percentage.usd > 0
@@ -75,7 +74,7 @@ const CryptoDetail = () => {
                 </span>
               </p>
               <p className="card-text">
-                <span>Total supply: {coins.market_data.total_supply}</span>
+              <span className="text-white">Total supply: </span><span>{coins.market_data.total_supply}</span>
               </p>
               <Link className="btn-back" to="/dashboard/criptos">
                     <span>back to list</span>

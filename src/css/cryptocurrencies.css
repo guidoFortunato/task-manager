@@ -52,6 +52,10 @@
   height: 80px;
 }
 
+.text-error{
+  color: #da2d2d;
+}
+
 
 .margin-price{
   margin-top: 28px;
