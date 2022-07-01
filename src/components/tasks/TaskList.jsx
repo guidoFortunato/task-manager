@@ -31,6 +31,7 @@ const TaskList = () => {
     setEditMode(true);
     setTask(item.taskName);
     setId(item.id);
+    setError(false);
   };
 
   const handleEdit = (e) => {
