@@ -14,14 +14,7 @@ import "../css/login.css";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
-  // const [showPass, setShowPass] = useState(false);
-  // const [inputType, setInputType] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  // const togglePass = () => {
-  //   setShowPass(!showPass);
-  //   setInputType(!inputType);
-  // };
+  const [loading, setLoading] = useState(false);  
 
   const navigate = useNavigate();
 
@@ -32,8 +25,8 @@ const Login = () => {
     setError,
   } = useForm({
     defaultValues: {
-      email: "guido@test.com",
-      pass: "123456",
+      email: "",
+      pass: "",
     },
   });
 
@@ -149,7 +142,8 @@ const Login = () => {
                   {loading ? "Loading..." : "Log in"}
                 </button>
                 <div className="signup">
-                  Don't have an account?{" "}
+                  <span className="me-1">Don't have an account?</span>
+                  
                   <Link to="/register" className="btn-click-here">
                     Click here
                   </Link>

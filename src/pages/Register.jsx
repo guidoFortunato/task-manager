@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { useForm } from "react-hook-form";
 // import { erroresFirebase } from "../firebase/erroresFirebase";
@@ -32,7 +32,7 @@ const Register = () => {
     try {
       setLoading(true);
       await registerUser(data.email, data.pass);
-      alertRegisterSuccess()
+      alertRegisterSuccess();
       navigate("/dashboard");
     } catch (error) {
       setLoading(false);
@@ -270,6 +270,13 @@ const Register = () => {
               >
                 {loading ? "Loading..." : "Register"}
               </button>
+              <div className="signup">
+                <span className="me-1">Are you already registered?</span>
+                
+                <Link to="/login" className="btn-click-here">
+                  Click here
+                </Link>
+              </div>
             </form>
           </div>
         </div>

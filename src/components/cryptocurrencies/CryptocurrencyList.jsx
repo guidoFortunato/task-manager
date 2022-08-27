@@ -49,62 +49,67 @@ const CryptocurrencyList = () => {
           </div>
         </div>
         <div className="col-12 d-flex justify-content-center">
-          <table className="table table-dark ancho-table">
-            <thead>
-              <tr>
-                {tableRow.map((item, index) => (
-                  <th scope="col" key={index}>
-                    {item}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {filteredCoins.length > 0 ? (
-                filteredCoins.map((item, index) => (
-                  <tr key={item.id}>
-                    {console.log(search)}
-                    {console.log(filteredCoins)}
-                    <td>{index + 1}</td>
-                    <td>
-                      <div className="container-coin">
-                        <img
-                          src={item.image}
-                          alt={item.id}
-                          className="img-crypto me-lg-2"
-                        />
+          {/* <div className="table-responsive"> */}
+            <table className="table table-dark ancho-table">
+              <thead>
+                <tr>
+                  {tableRow.map((item, index) => (
+                    <th scope="col" key={index}>
+                      {item}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {filteredCoins.length > 0 ? (
+                  filteredCoins.map((item, index) => (
+                    <tr key={item.id}>
+                      <td>{index + 1}</td>
+                      <td>
+                        <div className="container-coin">
+                          <img
+                            src={item.image}
+                            alt={item.id}
+                            className="img-crypto me-lg-2"
+                          />
 
-                        <span className="margin-name">{item.name}</span>
+                          <span className="margin-name">{item.name}</span>
 
-                        <span className="ms-lg-2 text-muted text-uppercase">
-                          {item.symbol}
-                        </span>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="container-detail">
-                        <Link
-                          to={`/dashboard/criptos/${item.id}`}
-                          className="btn-detail"
-                        >
-                          ver detalle
-                        </Link>
-                      </div>
-                    </td>
-                    <td>
-                      <div className="margin-price">${item.current_price}</div>
+                          <span className="ms-lg-2 text-muted text-uppercase">
+                            {item.symbol}
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="container-detail">
+                          <Link
+                            to={`/dashboard/criptos/${item.id}`}
+                            className="btn-detail"
+                          >
+                            ver detalle
+                          </Link>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="margin-price">
+                          ${item.current_price}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={4}>
+                      <span className="text-error">
+                        there is no cryptocurrency called "{search}" in this
+                        listing
+                      </span>
                     </td>
                   </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={4}>
-                    <span className="text-error">there is no cryptocurrency called "{search}" in this listing</span>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                )}
+              </tbody>
+            </table>
+          {/* </div> */}
         </div>
       </div>
     </div>
