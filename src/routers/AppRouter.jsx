@@ -69,7 +69,7 @@ const AppRouter = () => {
             element={
               <PrivateRouteDashboard>
                 <div>
-                  <h1 className=" mb-4">Estadio obras - tuentrada</h1>
+                  <h1 className=" mb-4">Próximamente</h1>
                   <Link className="btn-back" to="/dashboard">
                     back to dashboard
                   </Link>
@@ -82,7 +82,7 @@ const AppRouter = () => {
             element={
               <PrivateRouteDashboard>
                 <div>
-                  <h1 className=" mb-4">Information</h1>
+                  <h1 className=" mb-4">Próximamente</h1>
                   <Link className="btn-back" to="/dashboard">
                     back to dashboard
                   </Link>
